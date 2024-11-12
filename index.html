@@ -5,9 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password Generator</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./Fonts/Fonts/WEB/css/sentient.css">
 </head>
 <body>
-    <h2 id="header"></h2>
+
+
+    <div id="container">
+        <h1> Generate a Random Password</h1>
+        <p>Include:</p>
+
+        <div class="items">
+            <div id="checkboxes">
+                <label name="lowercase">
+                    <input type="checkbox" name="lowercase" id="includeLowerCase" >
+                    Lowercase letters
+                </label>
+    
+                <label name="uppercase">
+                    <input type="checkbox" name="uppercase" id="includeUpperCase">
+                    Uppercase letters
+                </label>
+    
+                <label name="numbers">
+                    <input type="checkbox" name="numbers" id="includeNumbers">
+                    Numbers
+                </label>
+    
+                <label name="symbols">
+                    <input type="checkbox" name="symbols" id="includeSymbols">
+                    Symbols
+                </label>
+            
+                <label name="length">How many characters?
+                    <input type="number" name="length" value="0" min="0" id="length" required>
+                </label>
+    
+            </div>
+
+            <button id="generateBtn">Generate</button>
+
+        </div>
+        
+        <h2 id="header"></h2>
+
+    </div>
+
     <script src="index.js"></script>
 </body>
 </html>

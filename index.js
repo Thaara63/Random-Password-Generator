@@ -40,5 +40,5 @@ const includeSymbols = true;
 const password = generatePassword(passwordLength, includeLowerCase, includeUpperCase, includeNumbers, includeSymbols);
 console.log(`Generated Password: ${password}`);
 
-const header = document.getElementById("header");
-header.textContent = `Generated Password: ${password}`;
+// const header = document.getElementById("header");
+// header.textContent = `Generated Password: ${password}`;
