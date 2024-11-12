@@ -1,6 +1,16 @@
+//Random Password Generator Program
 
-function generatePassword(length, includeLowerCase, includeUpperCase, includeNumbers, includeSymbols){
-    
+function generatePassword(){
+
+    //Getting input from the User
+    const length = document.getElementById("length").value;
+    const includeLowerCase = document.getElementById("includeLowerCase").checked;
+    const includeUpperCase = document.getElementById("includeUpperCase").checked;
+    const includeNumbers = document.getElementById("includeNumbers").checked;
+    const includeSymbols = document.getElementById("includeSymbols").checked;
+    const pass = document.getElementById("pass");
+
+
     const lowerCaseChars = "abcdefghijklmnopqrstuvwxyz";
     const upperCaseChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const numbers = "0123456789";
@@ -14,31 +24,21 @@ function generatePassword(length, includeLowerCase, includeUpperCase, includeNum
     allowedChars += includeNumbers ? numbers : "";
     allowedChars += includeSymbols ? symbols : "";
 
-    if(length <= 0){
-        return `(password length must be at least 1)`;
+    if(length == 0){
+        pass.textContent = `password length must be at least 1`;
     }
     if (allowedChars.length === 0){
-        return `(At least 1 set of character needs to be selected)`;
+        pass.textContent = `At least 1 set of character needs to be selected`;
     }
 
-    for(let i = 0; i < length; i++){
-        const randomIndex = Math.floor(Math.random() * allowedChars.length);
-        password += allowedChars[randomIndex]; 
-    }
+    if (length != 0 && allowedChars.length !== 0){
 
-    return password;
+        for(let i = 0; i < length; i++){
+            const randomIndex = Math.floor(Math.random() * allowedChars.length);
+            password += allowedChars[randomIndex]; 
+        }
+    
+        pass.textContent = `Password : ${password}`;
+    }
+    
 }
-
-
-const passwordLength = 10;
-const includeLowerCase = true;
-const includeUpperCase = true;
-const includeNumbers = true;
-const includeSymbols = true;
-
-
-const password = generatePassword(passwordLength, includeLowerCase, includeUpperCase, includeNumbers, includeSymbols);
-console.log(`Generated Password: ${password}`);
-
-// const header = document.getElementById("header");
-// header.textContent = `Generated Password: ${password}`;
